@@ -1,0 +1,56 @@
+[buildPlans.iosevka-custom]
+family = "Iosevka Custom"
+spacing = "normal"
+serifs = "sans"
+no-cv-ss = false
+export-glyph-names = true
+
+[buildPlans.iosevka-custom.variants.design]
+l = "serifed-flat-tailed"
+lower-delta = "flat-top"
+lower-xi = "flat-top"
+zero = "dotted"
+one = "base"
+three = "flat-top"
+asterisk = "penta-low"
+brace = "curly-flat-boundary"
+percent = "rings-continuous-slash"
+pilcrow = "low"
+
+  [buildPlans.iosevka-custom.ligations]
+  inherits = "dlig"
+
+[buildPlans.iosevka-custom.widths.normal]
+shape = 500
+menu = 5
+css = "normal"
+
+[buildPlans.iosevka-custom.widths.extended]
+shape = 600
+menu = 7
+css = "expanded"
+
+[buildPlans.iosevka-custom.widths.condensed]
+shape = 416
+menu = 3
+css = "condensed"
+
+[buildPlans.iosevka-custom.widths.semicondensed]
+shape = 456
+menu = 4
+css = "semi-condensed"
+
+[buildPlans.iosevka-custom.widths.semiextended]
+shape = 548
+menu = 6
+css = "semi-expanded"
+
+[buildPlans.iosevka-custom.widths.extraextended]
+shape = 658
+menu = 8
+css = "extra-expanded"
+
+[buildPlans.iosevka-custom.widths.ultraextended]
+shape = 720
+menu = 9
+css = "ultra-expanded"
