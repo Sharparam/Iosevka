@@ -1,9 +1,13 @@
 [buildPlans.iosevka-custom]
 family = "Iosevka Custom"
+desc = "Default"
 spacing = "normal"
 serifs = "sans"
 no-cv-ss = false
 export-glyph-names = true
+
+[buildPlans.iosevka-custom.ligations]
+inherits = "dlig"
 
 [buildPlans.iosevka-custom.variants.design]
 l = "serifed-flat-tailed"
@@ -17,8 +21,25 @@ brace = "curly-flat-boundary"
 percent = "rings-continuous-slash"
 pilcrow = "low"
 
-  [buildPlans.iosevka-custom.ligations]
-  inherits = "dlig"
+[buildPlans.iosevka-custom-term]
+family = "Iosevka Custom Term"
+spacing = "term"
+serifs = "sans"
+no-cv-ss = false
+export-glyph-names = true
+
+[buildPlans.iosevka-custom-term.variants]
+inherits = "buildPlans.iosevka-custom"
+
+[buildPlans.iosevka-custom-fixed]
+family = "Iosevka Custom Fixed"
+spacing = "fixed"
+serifs = "sans"
+no-cv-ss = false
+export-glyph-names = true
+
+[buildPlans.iosevka-custom-fixed.variants]
+inherits = "buildPlans.iosevka-custom"
 
 [buildPlans.iosevka-custom.widths.normal]
 shape = 500
@@ -35,22 +56,29 @@ shape = 416
 menu = 3
 css = "condensed"
 
-[buildPlans.iosevka-custom.widths.semicondensed]
-shape = 456
-menu = 4
-css = "semi-condensed"
+# [buildPlans.iosevka-custom.widths.semicondensed]
+# shape = 456
+# menu = 4
+# css = "semi-condensed"
 
-[buildPlans.iosevka-custom.widths.semiextended]
-shape = 548
-menu = 6
-css = "semi-expanded"
+# [buildPlans.iosevka-custom.widths.semiextended]
+# shape = 548
+# menu = 6
+# css = "semi-expanded"
 
-[buildPlans.iosevka-custom.widths.extraextended]
-shape = 658
-menu = 8
-css = "extra-expanded"
+# [buildPlans.iosevka-custom.widths.extraextended]
+# shape = 658
+# menu = 8
+# css = "extra-expanded"
 
-[buildPlans.iosevka-custom.widths.ultraextended]
-shape = 720
-menu = 9
-css = "ultra-expanded"
+# [buildPlans.iosevka-custom.widths.ultraextended]
+# shape = 720
+# menu = 9
+# css = "ultra-expanded"
+
+[collectPlans.iosevka-custom]
+from = [
+  "iosevka-custom",
+  "iosevka-custom-term",
+  "iosevka-custom-fixed"
+]
