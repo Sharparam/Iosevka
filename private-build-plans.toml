@@ -1,15 +1,13 @@
-[buildPlans.iosevka-sharpie]
+[buildPlans.IosevkaSharpie]
 family = "Iosevka Sharpie"
 desc = "Default"
 spacing = "normal"
 serifs = "sans"
-no-cv-ss = false
-export-glyph-names = true
+noCvSs = false
+exportGlyphNames = true
+webfontFormats = ["ttf", "woff2"]
 
-[buildPlans.iosevka-sharpie.ligations]
-inherits = "dlig"
-
-[buildPlans.iosevka-sharpie.variants.design]
+[buildPlans.IosevkaSharpie.variants.design]
 l = "serifed-flat-tailed"
 lower-delta = "flat-top"
 lower-xi = "flat-top"
@@ -21,52 +19,55 @@ brace = "curly-flat-boundary"
 percent = "rings-continuous-slash"
 pilcrow = "low"
 
-[buildPlans.iosevka-sharpie.widths]
-normal = { shape = 500, menu = 5, css = "normal" }
-extended = { shape = 600, menu = 7, css = "expanded" }
-condensed = { shape = 416, menu = 3, css = "condensed" }
+[buildPlans.IosevkaSharpie.ligations]
+inherits = "dlig"
 
-[buildPlans.iosevka-sharpie-term]
+[buildPlans.IosevkaSharpie.widths]
+Normal = { shape = 500, menu = 5, css = "normal" }
+Extended = { shape = 600, menu = 7, css = "expanded" }
+Condensed = { shape = 416, menu = 3, css = "condensed" }
+
+[buildPlans.IosevkaSharpieTerm]
 family = "Iosevka Sharpie Term"
 spacing = "term"
 serifs = "sans"
-# no-cv-ss = false
-export-glyph-names = true
+# noCvSs = false
+exportGlyphNames = true
 
-[buildPlans.iosevka-sharpie-term.variants]
-inherits = "buildPlans.iosevka-sharpie"
+[buildPlans.IosevkaSharpieTerm.variants]
+inherits = "buildPlans.IosevkaSharpie"
 
-[buildPlans.iosevka-sharpie-term.widths]
-normal = { shape = 500, menu = 5, css = "normal" }
-extended = { shape = 600, menu = 7, css = "expanded" }
-condensed = { shape = 416, menu = 3, css = "condensed" }
+[buildPlans.IosevkaSharpieTerm.widths]
+Normal = { shape = 500, menu = 5, css = "normal" }
+Extended = { shape = 600, menu = 7, css = "expanded" }
+Condensed = { shape = 416, menu = 3, css = "condensed" }
 
-[buildPlans.iosevka-sharpie-fixed]
+[buildPlans.IosevkaSharpieFixed]
 family = "Iosevka Sharpie Fixed"
 spacing = "fixed"
 serifs = "sans"
-# no-cv-ss = false
-export-glyph-names = true
+# noCvSs = false
+exportGlyphNames = true
 
-[buildPlans.iosevka-sharpie-fixed.variants]
-inherits = "buildPlans.iosevka-sharpie"
+[buildPlans.IosevkaSharpieFixed.variants]
+inherits = "buildPlans.IosevkaSharpie"
 
-[buildPlans.iosevka-sharpie-fixed.widths]
-normal = { shape = 500, menu = 5, css = "normal" }
-extended = { shape = 600, menu = 7, css = "expanded" }
-condensed = { shape = 416, menu = 3, css = "condensed" }
+[buildPlans.IosevkaSharpieFixed.widths]
+Normal = { shape = 500, menu = 5, css = "normal" }
+Extended = { shape = 600, menu = 7, css = "expanded" }
+Condensed = { shape = 416, menu = 3, css = "condensed" }
 
-[buildPlans.iosevka-sharpie-aile]
+[buildPlans.IosevkaSharpieAile]
 family = "Iosevka Sharpie Aile"
 desc = "Sans-serif"
 spacing = "quasi-proportional"
-# no-cv-ss = false
-export-glyph-names = true
+# noCvSs = false
+exportGlyphNames = true
 
-[buildPlans.iosevka-sharpie-aile.variants]
-inherits = "buildPlans.iosevka-aile"
+[buildPlans.IosevkaSharpieAile.variants]
+inherits = "buildPlans.IosevkaAile"
 
-[buildPlans.iosevka-sharpie-aile.variants.design]
+[buildPlans.IosevkaSharpieAile.variants.design]
 zero = "dotted"
 # capital-i = "serifless"
 # capital-j = "serifless"
@@ -104,7 +105,7 @@ zero = "dotted"
 # percent = "rings-continuous-slash"
 # micro-sign = "toothed-serifless"
 
-[buildPlans.iosevka-sharpie-aile.derivingVariants.mathtt.design]
+[buildPlans.IosevkaSharpieAile.derivingVariants.mathtt.design]
 zero = "dotted"
 # capital-i = "serifed"
 # capital-j = "serifless"
@@ -142,38 +143,38 @@ zero = "dotted"
 # percent = "rings-continuous-slash"
 # micro-sign = "toothed-serifless"
 
-[buildPlans.iosevka-sharpie-aile.widths]
-normal = { shape = 600, menu = 5, css = "normal" }
+[buildPlans.IosevkaSharpieAile.widths]
+Normal = { shape = 600, menu = 5, css = "normal" }
 
-[buildPlans.iosevka-sharpie-etoile]
+[buildPlans.IosevkaSharpieEtoile]
 family  = "Iosevka Sharpie Etoile"
 desc = "Slab-serif"
 spacing = "quasi-proportional"
 serifs = 'slab'
-# no-cv-ss = false
-export-glyph-names = true
+# noCvSs = false
+exportGlyphNames = true
 
-[buildPlans.iosevka-sharpie-etoile.variants]
-inherits = "buildPlans.iosevka-etoile"
+[buildPlans.IosevkaSharpieEtoile.variants]
+inherits = "buildPlans.IosevkaEtoile"
 
-[buildPlans.iosevka-sharpie-etoile.variants.design]
+[buildPlans.IosevkaSharpieEtoile.variants.design]
 zero = "dotted"
 
-[buildPlans.iosevka-sharpie-etoile.variants.italic]
+[buildPlans.IosevkaSharpieEtoile.variants.italic]
 zero = "dotted"
 
-[buildPlans.iosevka-sharpie-etoile.widths]
-normal = { shape = 600, menu = 5, css = "normal" }
+[buildPlans.IosevkaSharpieEtoile.widths]
+Normal = { shape = 600, menu = 5, css = "normal" }
 
-[collectPlans.iosevka-sharpie]
+[collectPlans.IosevkaSharpie]
 from = [
-  "iosevka-sharpie",
-  "iosevka-sharpie-term",
-  "iosevka-sharpie-fixed"
+  "IosevkaSharpie",
+  "IosevkaSharpieTerm",
+  "IosevkaSharpieFixed"
 ]
 
-[collectPlans.iosevka-sharpie-aile]
-from = ["iosevka-sharpie-aile"]
+[collectPlans.IosevkaSharpieAile]
+from = ["IosevkaSharpieAile"]
 
-[collectPlans.iosevka-sharpie-etoile]
-from = ["iosevka-sharpie-etoile"]
+[collectPlans.IosevkaSharpieEtoile]
+from = ["IosevkaSharpieEtoile"]
