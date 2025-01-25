@@ -76,7 +76,7 @@
           });
       in
       {
-        packages = {
+        packages = rec {
           default = makeIosevkaFont "sharpie" "super-ttc" "IosevkaSharpie";
           ttc = makeIosevkaFont "sharpie" "ttc" "IosevkaSharpie";
           ttf = makeIosevkaFont "sharpie" "ttf" "IosevkaSharpie";
@@ -88,6 +88,29 @@
           etoile-super-ttc = makeIosevkaFont "sharpie-etoile" "super-ttc" "IosevkaSharpieEtoile";
           etoile-ttc = makeIosevkaFont "sharpie-etoile" "ttc" "IosevkaSharpieEtoile";
           etoile-ttf = makeIosevkaFont "sharpie-etoile" "ttf" "IosevkaSharpieEtoile";
+          bin = pkgs.stdenv.mkDerivation {
+            pname = "iosevka-sharpie-bin";
+            inherit version;
+
+            src = pkgs.fetchurl {
+              url = "https://github.com/Sharparam/Iosevka/releases/download/v${version}/IosevkaSharpie-${version}.zip";
+              sha256 = "sha256-7XSRHufNTJfPYxMjiKtmCnPB9sOcGKzKeFgLIb8W+MM=";
+            };
+
+            nativeBuildInputs = with pkgs; [ unzip ];
+
+            dontInstall = true;
+
+            unpackPhase = ''
+              mkdir -p $out/share/fonts/TTC/IosevkaSharpie
+              unzip -d $out/share/fonts/TTC/IosevkaSharpie $src
+            '';
+
+            meta = {
+              inherit (default.meta) homepage license platforms;
+              description = "${default.meta.description} (binary package)";
+            };
+          };
         };
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
