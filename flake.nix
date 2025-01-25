@@ -19,6 +19,8 @@
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             nodejs
+            ttfautohint-nox
+            prefetch-npm-deps
           ];
         };
       }
