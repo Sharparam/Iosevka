@@ -18,8 +18,19 @@
       system:
       let
         pkgs = import nixpkgs { inherit system; };
-        makeIosevkaFont = set: mode: plan: (
-          pkgs.buildNpmPackage {
+        makeIosevkaFont =
+          set: mode: plan:
+          let
+            dist-dir =
+              if mode == "super-ttc" then
+                ".super-ttc"
+              else if mode == "ttc" then
+                ".ttc/${plan}"
+              else
+                "${plan}/TTF";
+            fontdir-target = if mode == "super-ttc" || mode == "ttc" then "TTC" else "TTF";
+          in
+          (pkgs.buildNpmPackage {
             pname = "iosevka-${set}-${mode}";
             inherit version;
 
@@ -31,17 +42,30 @@
 
             npmDepsHash = "sha256-Qr7fN49qyaqaSutrdT7HjWis7jjwYR/S2kxkHs7EhXY=";
 
-            npmBuildFlags = ["--" "${mode}::${plan}"];
+            # npmBuildFlags = [
+            #   "--"
+            #   "--targets=${mode}::${plan}"
+            #   "--jCmd=$NIX_BUILD_CORES"
+            #   "--verbose=9"
+            # ];
+
+            buildPhase = ''
+              runHook preBuild
+              npm run build -- --targets=${mode}::${plan} --jCmd=$NIX_BUILD_CORES --verbose=9
+              runHook postBuild
+            '';
 
             npmPackFlags = [ "--ignore-scripts" ];
 
             installPhase = ''
               runHook preInstall
-              fontdir="$out/share/fonts/TTC/Iosevka Sharpie"
+              fontdir="$out/share/fonts/${fontdir-target}/${plan}"
               install -d "$fontdir"
-              install "dist/.supeer-ttc"/* "$fontdir"
+              install "dist/${dist-dir}"/* "$fontdir"
               runHook postInstall
             '';
+
+            enableParallelBuilding = true;
 
             meta = {
               homepage = "https://github.com/Sharparam/Iosevka";
@@ -49,18 +73,21 @@
               license = lib.licenses.ofl;
               platforms = lib.platforms.all;
             };
-          }
-        );
+          });
       in
       {
         packages = {
           default = makeIosevkaFont "sharpie" "super-ttc" "IosevkaSharpie";
           ttc = makeIosevkaFont "sharpie" "ttc" "IosevkaSharpie";
           ttf = makeIosevkaFont "sharpie" "ttf" "IosevkaSharpie";
-          term-ttc = makeIosevkaFont "sharpie-term" "ttc" "IosevkaSharpieTerm";
-          fixed-ttc = makeIosevkaFont "sharpie-fixed" "ttc" "IosevkaSharpieFixed";
           term-ttf = makeIosevkaFont "sharpie-term" "ttf" "IosevkaSharpieTerm";
           fixed-ttf = makeIosevkaFont "sharpie-fixed" "ttf" "IosevkaSharpieFixed";
+          aile-super-ttc = makeIosevkaFont "sharpie-aile" "super-ttc" "IosevkaSharpieAile";
+          aile-ttc = makeIosevkaFont "sharpie-aile" "ttc" "IosevkaSharpieAile";
+          aile-ttf = makeIosevkaFont "sharpie-aile" "ttf" "IosevkaSharpieAile";
+          etoile-super-ttc = makeIosevkaFont "sharpie-etoile" "super-ttc" "IosevkaSharpieEtoile";
+          etoile-ttc = makeIosevkaFont "sharpie-etoile" "ttc" "IosevkaSharpieEtoile";
+          etoile-ttf = makeIosevkaFont "sharpie-etoile" "ttf" "IosevkaSharpieEtoile";
         };
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
