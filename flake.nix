@@ -94,7 +94,7 @@
 
             src = pkgs.fetchurl {
               url = "https://github.com/Sharparam/Iosevka/releases/download/v${version}/IosevkaSharpie-${version}.zip";
-              sha256 = "sha256-7XSRHufNTJfPYxMjiKtmCnPB9sOcGKzKeFgLIb8W+MM=";
+              sha256 = "sha256-JVZroGgJYyN/vwaRKPLyrt3OEBi75/zANZcWH6T/n9g=";
             };
 
             nativeBuildInputs = with pkgs; [ unzip ];
