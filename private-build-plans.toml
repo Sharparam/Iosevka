@@ -18,6 +18,7 @@ asterisk = "penta-low"
 brace = "curly-flat-boundary"
 percent = "rings-continuous-slash"
 pilcrow = "low"
+decorative-angle-brackets = "tall"
 
 [buildPlans.IosevkaSharpie.ligations]
 inherits = "dlig"
