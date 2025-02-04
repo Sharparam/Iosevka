@@ -12,7 +12,7 @@
     }@inputs:
     let
       lib = nixpkgs.lib;
-      version = "1.0.0";
+      version = "1.0.1";
     in
     utils.lib.eachDefaultSystem (
       system:
@@ -40,7 +40,7 @@
               ttfautohint-nox
             ];
 
-            npmDepsHash = "sha256-Qr7fN49qyaqaSutrdT7HjWis7jjwYR/S2kxkHs7EhXY=";
+            npmDepsHash = "sha256-HeqwpZyHLHdMhd/UfXVBonMu+PhStrLCxAMuP/KuTT8=";
 
             # npmBuildFlags = [
             #   "--"
